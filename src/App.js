@@ -3,12 +3,14 @@ import Navbar from './component/Navbar'; // Adjust the path as necessary
 import Products from './Products'; // Assuming you have these pages
 import Pricing from './Pricing';
 import Blog from './Blog';
+import HomePage from './component/Login';
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
+      <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<Products />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/blog" element={<Blog />} />
