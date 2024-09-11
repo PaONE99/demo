@@ -12,7 +12,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+
+// Import the CSS for the leaf icon
+import './accets/styles.css'; // Make sure this path is correct
 
 const pages = [
   { name: 'Products', path: '/products' },
@@ -44,24 +46,35 @@ function Navbar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            SeedLearn
-          </Typography>
+          {/* Container for Leaf Icon and "SeedLearn" text */}
+          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+            <div 
+              className="leaf" 
+              style={{ 
+                marginRight: 16, 
+                position: 'relative', 
+                zIndex: 1, 
+                marginTop: 0 // Move the leaf icon slightly above
+              }}
+            ></div>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
+              sx={{
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+                zIndex: 2,  // Ensure text is above the icon
+                fontSize: '1.5rem', // Increase text size
+              }}
+            >
+              SeedLearn
+            </Typography>
+          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -102,7 +115,6 @@ function Navbar() {
             </Menu>
           </Box>
 
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
