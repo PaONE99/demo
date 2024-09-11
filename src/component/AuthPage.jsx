@@ -17,7 +17,7 @@ const AuthPage = () => {
     event.preventDefault();
     // Simulate login
     if (email === 'test@example.com' && password === 'password') {
-      navigate('/home'); // Redirect to home on successful login
+      navigate('/homepage'); // Correct path to home page
     } else {
       alert('Invalid credentials');
     }
