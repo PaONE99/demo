@@ -12,9 +12,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-
-// Import the CSS for the leaf icon
-import './accets/styles.css'; // Make sure this path is correct
+import './accets/styles.css'; // Ensure the path is correct
 
 const pages = [
   { name: 'Products', path: '/products' },
@@ -46,40 +44,11 @@ function Navbar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Container for Leaf Icon and "SeedLearn" text */}
-          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-            <div 
-              className="leaf" 
-              style={{ 
-                marginRight: 16, 
-                position: 'relative', 
-                zIndex: 1, 
-                marginTop: 0 // Move the leaf icon slightly above
-              }}
-            ></div>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                zIndex: 2,  // Ensure text is above the icon
-                fontSize: '1.5rem', // Increase text size
-              }}
-            >
-              SeedLearn
-            </Typography>
-          </Box>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* Mobile View */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', width: '100%' }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -87,6 +56,25 @@ function Navbar() {
             >
               <MenuIcon />
             </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
+              sx={{
+                flexGrow: 1,
+                ml: 2, // Margin left to space from the menu icon
+                fontFamily: "'Chillax', sans-serif",
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+                fontSize: '1.5rem', // Adjust as needed
+                textAlign: 'center', // Center text
+              }}
+            >
+              SeedLearn
+            </Typography>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -115,24 +103,35 @@ function Navbar() {
             </Menu>
           </Box>
 
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          {/* Desktop View */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', flexGrow: 1 }}>
+            <div 
+              className="leaf" 
+              style={{ 
+                marginRight: 16, 
+                position: 'relative', 
+                zIndex: 1, 
+                marginTop: 0 // Move the leaf icon slightly above
+              }}
+            ></div>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
+              sx={{
+                fontFamily: "'Chillax', sans-serif",
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+                zIndex: 2,
+                fontSize: '1.5rem', // Increase text size
+              }}
+            >
+              SeedLearn
+            </Typography>
+          </Box>
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
