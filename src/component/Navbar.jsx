@@ -59,8 +59,8 @@ function Navbar() {
             <Typography
               variant="h6"
               noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
+              component={Link} // Use Link component for routing
+              to="/homepage" // Navigate to home page when clicked
               sx={{
                 flexGrow: 1,
                 ml: 2, // Margin left to space from the menu icon
@@ -117,8 +117,8 @@ function Navbar() {
             <Typography
               variant="h6"
               noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
+              component={Link} // Use Link component for routing
+              to="/homepage" // Navigate to home page when clicked
               sx={{
                 fontFamily: "'Chillax', sans-serif",
                 fontWeight: 700,
